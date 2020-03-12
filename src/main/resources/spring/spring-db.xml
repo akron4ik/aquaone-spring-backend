@@ -1,0 +1,70 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+
+    <tx:annotation-driven/>
+
+    <beans>
+        <context:component-scan base-package="com.example.aquaone.repository"/>
+        <jpa:repositories base-package="com.example.aquaone.repository"/>
+        <context:property-placeholder location="classpath:/db/heroku.properties" system-properties-mode="OVERRIDE"/>
+
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="postgres://hmjiwhzutamlrt:aa488a18746c053e5e29a6a53e8ba0cd88b8efbc4ebb25b6a6facf7e05e67ab5@ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/db6h5rjvj3ieob"/>
+    </bean>
+    <bean id="dataSource"
+          class="org.apache.tomcat.jdbc.pool.DataSource"
+          p:url="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"
+          p:username="#{ @dbUrl.getUserInfo().split(':')[0] }"
+          p:password="#{ @dbUrl.getUserInfo().split(':')[1] }"
+          p:driverClassName="org.postgresql.Driver"
+          p:validationQuery="SELECT 1"
+          p:maxActive="10"
+          p:minIdle="2"
+          p:maxWait="20000"
+          p:initialSize="2"
+          p:maxIdle="5"
+          p:testOnBorrow="true"
+          p:removeAbandoned="true"
+          p:testOnConnect="true"
+          p:testWhileIdle="true"
+    />
+
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:packagesToScan="com.example.aquaone.model">
+
+        <property name="jpaPropertyMap">
+
+            <map>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).FORMAT_SQL}" value="${hibernate.format_sql}"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SQL_COMMENTS}" value="${hibernate.use_sql_comments}"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).CACHE_REGION_FACTORY}" value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+                <entry key="#{T(org.hibernate.cache.jcache.ConfigSettings).PROVIDER}" value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SECOND_LEVEL_CACHE}" value="true"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_QUERY_CACHE}" value="false"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).DIALECT}" value="org.hibernate.dialect.PostgreSQLDialect"/>
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).DRIVER}" value="org.postgresql.Driver"/>
+            </map>
+        </property>
+
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" p:showSql="${jpa.showSql}">
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory"/>
+    <bean class="com.example.aquaone.repository.JpaUtil"/>
+    </beans>
+</beans>
