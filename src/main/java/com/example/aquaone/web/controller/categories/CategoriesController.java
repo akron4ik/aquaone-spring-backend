@@ -1,4 +1,4 @@
-package com.example.aquaone.web.controller;
+package com.example.aquaone.web.controller.categories;
 
 import com.example.aquaone.model.Category;
 import com.example.aquaone.service.category.CategoryService;

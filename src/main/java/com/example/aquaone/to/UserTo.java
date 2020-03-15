@@ -15,25 +15,21 @@ public class UserTo extends BaseTo implements HasEmail, Serializable {
 
     @NotBlank
     @Size(min = 2, max = 100, message = "please enter correct name, must be minimum 2 characters")
-    @SafeHtml
     private String username;
 
     @NotBlank
     @Size(min = 2, max = 50, message = "please enter correct surname, must be minimum 2 characters")
-    @SafeHtml
     private String surname;
 
-    @SafeHtml
     private String organization;
 
     @Email
     @NotBlank
     @Size(max = 100)
-    @SafeHtml // https://stackoverflow.com/questions/17480809
+     // https://stackoverflow.com/questions/17480809
     private String email;
 
     @NotBlank
-    @SafeHtml
     @Size(min = 5, max = 32, message = "length must be between 5 and 32 characters")
     private String password;
 

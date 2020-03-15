@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/admin")
+@RequestMapping("/admin")
 public class AdminController extends AbstractUserController {
 
     @Override

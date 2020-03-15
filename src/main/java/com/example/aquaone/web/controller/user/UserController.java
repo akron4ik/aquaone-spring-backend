@@ -20,6 +20,9 @@ public class UserController extends AbstractUserController {
     @PutMapping
     public UserTo updateProfile(@Validated(View.Web.class) @RequestBody UserTo userTo,
                                 @AuthenticationPrincipal LoggedUser loggedUser) {
+        System.out.println("userTo" + userTo);
+        System.out.println("logged" + loggedUser);
+
         super.update(userTo, loggedUser.id());
         loggedUser.update(userTo);
         return loggedUser.getUserTo();

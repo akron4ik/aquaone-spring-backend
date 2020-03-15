@@ -12,17 +12,13 @@ public class MessageTo implements Serializable {
 
     @NotBlank
     @Size(max = 100)
-    @SafeHtml
     private String name;
 
     @Email
     @NotBlank
     @Size(max = 100)
-    @SafeHtml
     private String email;
 
-
-    @SafeHtml
     private String text;
 
     public MessageTo() {

@@ -1,4 +1,4 @@
-package com.example.aquaone.web;
+package com.example.aquaone.web.view;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

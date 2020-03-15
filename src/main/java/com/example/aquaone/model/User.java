@@ -42,7 +42,6 @@ public class User extends AbstractBaseEntity implements HasEmail {
     @Email
     @NotBlank
     @Size(min = 4, max = 100)
-    @SafeHtml(groups = {View.Web.class})
     private String email;
 
     @Column(name = "password", nullable = false)

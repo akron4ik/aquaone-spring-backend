@@ -1,12 +1,12 @@
 package com.example.aquaone.web.filter;
 
 
+import com.example.aquaone.service.user.UserService;
 import com.example.aquaone.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
@@ -23,7 +23,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
     private TokenUtil tokenUtil;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserService userDetailsService;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

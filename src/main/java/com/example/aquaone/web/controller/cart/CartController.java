@@ -1,4 +1,4 @@
-package com.example.aquaone.web.controller;
+package com.example.aquaone.web.controller.cart;
 
 import com.example.aquaone.LoggedUser;
 import com.example.aquaone.model.Cart;

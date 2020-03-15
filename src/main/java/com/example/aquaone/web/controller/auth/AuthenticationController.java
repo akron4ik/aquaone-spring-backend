@@ -1,4 +1,4 @@
-package com.example.aquaone.web.controller;
+package com.example.aquaone.web.controller.auth;
 
 import com.example.aquaone.LoggedUser;
 import com.example.aquaone.View;
@@ -6,9 +6,10 @@ import com.example.aquaone.service.user.UserService;
 import com.example.aquaone.to.UserTo;
 import com.example.aquaone.util.TokenUtil;
 import com.example.aquaone.util.UserUtil;
-import com.example.aquaone.web.AuthenticationRequest;
-import com.example.aquaone.web.AuthenticationResponse;
+import com.example.aquaone.web.view.AuthenticationRequest;
+import com.example.aquaone.web.view.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,16 +18,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/rest/authentication")
+@RequestMapping(value = "/rest/authentication", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AuthenticationController {
 
     @Autowired
@@ -74,10 +72,7 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public AuthenticationResponse createWithLocation(@Validated(View.Web.class) @RequestBody UserTo user) {
-        System.out.println("AAAAAAAAA"+user);
-
-
+    public AuthenticationResponse createWithLocation(@Valid @RequestBody UserTo user) {
         userService.create(UserUtil.createNewFromTo(user));
         AuthenticationRequest authenticationRequest = new AuthenticationRequest(user.getEmail(), user.getPassword());
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/rest/admin/products", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/admin/products", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminProductController extends AbstractProductController {
 
 

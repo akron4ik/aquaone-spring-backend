@@ -28,6 +28,7 @@ import static com.example.aquaone.util.ValidationUtil.checkNotFoundWithId;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UserService implements UserDetailsService {
     private final UserRepository repository;
+
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -91,6 +92,7 @@ public class UserService implements UserDetailsService {
         User user = get(userTo.id());
         repository.save(prepareToSave(UserUtil.updateFromTo(user, userTo), passwordEncoder));
     }
+
 
     @Override
     public LoggedUser loadUserByUsername(String email) throws UsernameNotFoundException {

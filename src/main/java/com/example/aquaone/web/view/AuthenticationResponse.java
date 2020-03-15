@@ -1,4 +1,4 @@
-package com.example.aquaone.web;
+package com.example.aquaone.web.view;
 
 
 import com.example.aquaone.LoggedUser;

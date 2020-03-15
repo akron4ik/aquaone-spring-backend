@@ -1,4 +1,4 @@
-package com.example.aquaone.web.controller;
+package com.example.aquaone.web.controller.products;
 
 import com.example.aquaone.View;
 import com.example.aquaone.model.Product;
@@ -61,10 +61,4 @@ public class ProductController extends AbstractProductController {
         sendEmailUtil.createAndSendMessage(messageTo.getName(), messageTo.getEmail(), messageTo.getText());
         return "Success";
     }
-
-
-
-
-
-
 }

@@ -1,4 +1,4 @@
-package com.example.aquaone.web.controller.user;
+package com.example.aquaone.util;
 
 import com.example.aquaone.HasEmail;
 import com.example.aquaone.model.User;

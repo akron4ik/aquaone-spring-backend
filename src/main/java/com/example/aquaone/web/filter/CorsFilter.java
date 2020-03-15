@@ -1,8 +1,12 @@
 package com.example.aquaone.web.filter;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+
+/*
+@Component
 public class CorsFilter extends org.springframework.web.filter.CorsFilter {
 
     public CorsFilter() {
@@ -15,9 +19,9 @@ public class CorsFilter extends org.springframework.web.filter.CorsFilter {
         config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
     }
-
-}
+}*/

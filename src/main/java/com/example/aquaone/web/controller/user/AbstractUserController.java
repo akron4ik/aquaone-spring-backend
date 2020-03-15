@@ -5,6 +5,7 @@ import com.example.aquaone.model.User;
 import com.example.aquaone.service.cart.CartService;
 import com.example.aquaone.service.user.UserService;
 import com.example.aquaone.to.UserTo;
+import com.example.aquaone.util.UniqueMailValidator;
 import com.example.aquaone.util.UserUtil;
 import com.example.aquaone.util.exception.InvalidDataException;
 import org.slf4j.Logger;
