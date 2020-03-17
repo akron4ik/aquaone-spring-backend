@@ -8,6 +8,8 @@ ALTER SEQUENCE global_seq RESTART WITH 100000;
 INSERT INTO users (name, surname, email, password, phone, address) VALUES
   ('User', 'User', 'user@yandex.ru', '{noop}password', '8(985)123-4567', 'Moscow, Amurskay st, 48 - 52'),
   ('Admin', 'Admin' , 'admin@gmail.com', '{noop}admin', '+7(916)123-7654', 'Voronezh, Lenin street, 1, 22'),
+  ('Anna', 'Voroyskaya', '6829050@gmail.com', '{noop}9036829050', '8(903)682-9050', 'Moscow, Amurskay st, 48 - 52'),
+  ('Anton', 'Aronov', 'aron86@list.ru', '{noop}9036829050', '8(985)789-4299', 'Moscow, Amurskay st, 48 - 52'),
   ('User2', 'User2', 'user@mail.ru', '{noop}password1', '8(985)123-0000', 'Moscow, Amurskay st, 48 - 52');
 
 
@@ -15,7 +17,9 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),
   ('ROLE_ADMIN', 100001),
   ('ROLE_USER', 100001),
-  ('ROLE_USER', 100002);
+  ('ROLE_ADMIN', 100002),
+  ('ROLE_ADMIN', 100003),
+  ('ROLE_USER', 100004);
 
 INSERT INTO category (id, name) VALUES
 (1, 'Вода'),

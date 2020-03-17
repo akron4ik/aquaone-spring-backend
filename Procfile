@@ -1,0 +1,1 @@
+web: java -jar --port $PORT target/aquaone-0.0.1-SNAPSHOT.jar

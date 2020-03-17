@@ -1,6 +1,6 @@
 # back
-# устанавливаем самую лёгкую версию JVM
-FROM openjdk:15-alpine
+# устанавливаем версию JVM
+FROM openjdk:11
 
 # указываем ярлык. Например, разработчика образа и проч. Необязательный пункт.
 LABEL maintainer="aron4ik"
@@ -14,8 +14,8 @@ EXPOSE 8080
 # указываем, где в нашем приложении лежит джарник
 ARG JAR_FILE=target/aquaone-0.0.1-SNAPSHOT.jar
 
-# добавляем джарник в образ под именем rebounder-chain-backend.jar
+
 ADD ${JAR_FILE} aquaone.jar
 
 # команда запуска джарника
-ENTRYPOINT ["java","-jar","/aquaone.jar"]
+ENTRYPOINT ["java","-XX:+UseContainerSupport", "-jar","/aquaone.jar"]
