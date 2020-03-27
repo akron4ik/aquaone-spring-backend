@@ -14,16 +14,17 @@ public class SendEmailUtil {
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         // Recipient's email ID needs to be mentioned.
         String actualMessage = messageToSend;
-        String to = "aron86@list.ru";
+        String to = "aron4ik@ro.ru";
 
         // Sender's email ID needs to be mentioned
-        String from = "orders.aquaone@gmail.com";
+        /*String from = "orders.aquaone@gmail.com";*/
+        String from = "aron86@list.ru";
 
         // Get system properties
         Properties props = System.getProperties();
 
         // Setup mail server
-        props.setProperty("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.host", "smtp.mail.ru");
         props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.port", "465");
@@ -32,8 +33,10 @@ public class SendEmailUtil {
         props.put("mail.debug", "true");
         props.put("mail.store.protocol", "pop3");
         props.put("mail.transport.protocol", "smtp");
-        final String username = "orders.aquaone@gmail.com";//
-        final String password = "123edc456";
+        /*final String username = "orders.aquaone@gmail.com";//
+        final String password = "123edc456";*/
+        final String username = "aron86@list.ru";//
+        final String password = "2Wsx4rFv6yhN";
 
         // Get the default Session object.
         Session session = Session.getDefaultInstance(props, new Authenticator(){
@@ -84,4 +87,6 @@ public class SendEmailUtil {
         send(stringBuilder.toString());
 
     }
+
+
 }
