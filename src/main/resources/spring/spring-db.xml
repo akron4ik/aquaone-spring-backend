@@ -18,12 +18,11 @@
 
         <!-- Не забудь раскомментить при подключении к heroku  -->
         <!-- А вообще в следующий раз сделай профили -->
-        <!--<context:property-placeholder location="classpath:/db/heroku.properties" system-properties-mode="OVERRIDE"/>
--->
+        <context:property-placeholder location="classpath:/db/heroku.properties" system-properties-mode="OVERRIDE"/>
 
 
         <!--This beans to heroku-->
-        <!--<bean class="java.net.URI" id="dbUrl">
+        <bean class="java.net.URI" id="dbUrl">
         <constructor-arg value="postgres://hmjiwhzutamlrt:aa488a18746c053e5e29a6a53e8ba0cd88b8efbc4ebb25b6a6facf7e05e67ab5@ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/db6h5rjvj3ieob"/>
     </bean>
     <bean id="dataSource"
@@ -42,20 +41,18 @@
           p:removeAbandoned="true"
           p:testOnConnect="true"
           p:testWhileIdle="true"
-    />-->
+    />
 
         <!--This beans to amazon-->
-        <!--<bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="postgresql://aquaonemaster:1qaz3edc5tgb@seconddbpostgres.cz9arstvbcai.eu-west-1.rds.amazonaws.com:5432/aquaonedb"/>
-    </bean>-->
-        <context:property-placeholder location="classpath:db/amazon.properties" system-properties-mode="OVERRIDE"/>
+
+        <!--<context:property-placeholder location="classpath:db/amazon.properties" system-properties-mode="OVERRIDE"/>
 
         <bean id="dataSource"
               class="org.apache.tomcat.jdbc.pool.DataSource"
               p:driverClassName="org.postgresql.Driver"
               p:url="${database.url}"
               p:username="${database.username}"
-              p:password="${database.password}"/>
+              p:password="${database.password}"/>-->
 
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

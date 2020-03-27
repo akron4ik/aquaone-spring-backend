@@ -1,1 +1,1 @@
-web: java -jar --port $PORT target/aquaone-0.0.1-SNAPSHOT.jar
+web: java $JAVA_OPTS -jar target/aquaone-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT $JAR_OPTS
