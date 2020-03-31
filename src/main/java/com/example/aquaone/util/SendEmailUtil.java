@@ -14,7 +14,7 @@ public class SendEmailUtil {
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         // Recipient's email ID needs to be mentioned.
         String actualMessage = messageToSend;
-        String to = "aron4ik@ro.ru";
+        String to = "2298520@bk.ru";
 
         // Sender's email ID needs to be mentioned
         /*String from = "orders.aquaone@gmail.com";*/
