@@ -23,7 +23,7 @@
 
         <!--This beans to heroku-->
         <bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="${DATABASE_URL"/>
+        <constructor-arg value="postgres://rmmstoiyeveanb:9afe6822ff6ffabc377fb7fe1f74701705e59acba7805d1e468dfe401e2b4a4b@ec2-176-34-123-50.eu-west-1.compute.amazonaws.com:5432/d20ujlhvhidc86"/>
     </bean>
     <bean id="dataSource"
           class="org.apache.tomcat.jdbc.pool.DataSource"
