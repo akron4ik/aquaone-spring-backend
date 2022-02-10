@@ -18,7 +18,7 @@
 		<java.version>11</java.version>
 		<jwt.version>0.7.0</jwt.version>
 		<spring-data-jpa.version>2.2.5.RELEASE</spring-data-jpa.version>
-		<hibernate.version>5.4.3.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<javax-el.version>3.0.1-b11</javax-el.version>
 		<ehcache.version>3.7.1</ehcache.version>
 		<postgresql.version>42.2.6</postgresql.version>
